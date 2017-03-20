@@ -1,4 +1,4 @@
-# [Bootstrap - PHP Contact Form] (http://tcoderbd.com/#contact/) #
+# [Bootstrap - PHP Contact Form](http://tcoderbd.com/#contact/)
 Boostrap PHP contact form with Google Recaptcha
 
 Edit "sendemail.php" file and follow this step.
