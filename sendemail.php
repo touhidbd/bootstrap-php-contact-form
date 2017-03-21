@@ -6,13 +6,10 @@
 		Email: touhid@tcoderbd.com
 	*/ 
 	
-	/*
-		1. Update Your Google Recaptcha Secret Key
-		Line No: 65
-		
-		2. Update Your Receive Email
-		Line No: 71
-	*/
+	
+	$key = "Your Google Recaptcha Secret Key Here"; // Google Recaptcha Secret Key
+	$email_to = 'your_email@domain.com';  // Your email address
+	
 	
 	
 	$name;
@@ -62,14 +59,12 @@
 		exit;
 	}
 	
-	$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=YOUR WEBSITE SECRET KEY&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
+	$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$key."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR']);
 	
 	if($response.success==false){
 		echo '<h2>You are spammer! Get the Out!</h2>';
 	} else {
 		
-		$email_to = 'your_email@domain.com';
-
 		$title = $subject;
 		
 		@mail($email_to, $title, '<b>Name:</b> ' .$name . "\n\n" . '<b>Email:</b> ' .$email. "\n\n" .'<b>Subject:</b> ' .$subject. "\n\n" . 'Message: ' .$message);
